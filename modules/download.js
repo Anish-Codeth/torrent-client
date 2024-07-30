@@ -13,7 +13,8 @@ import { pieceLen } from './torrentparser.js'
 
 
 const peerDownload = filename => {
-  const torrent=readTorrentFile('./espresso.torrent')
+  const torrent=readTorrentFile(process.env.filename)
+  console.log(torrent)
   const file=createFile(torrent)
   getpeers(filename, peers => {
     const pieces = new Pieces(torrent);
@@ -98,9 +99,10 @@ requestPiece(socket,pieces,blockQueue)
 }
 
 function haveHandler(socket,pieces,blockQueue,payload) {
+  console.log('sended have message',socket.id)
     const pieceIndex = payload.readUInt32BE(0);
     blockQueue.enqueue(payload)
-    if (blockQueue.length()==0)
+    if (blockQueue.length()==1)
     {
         requestPiece(socket,pieces,blockQueue)
     }

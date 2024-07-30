@@ -5,8 +5,8 @@ import fs from 'fs'
 
 
 
-const readTorrentFile=(filiename)=>{
-    const data=fs.readFileSync(filiename)
+const readTorrentFile=(filename)=>{
+    const data=fs.readFileSync(filename)
     return bencode.decode(data)
 }
 
@@ -44,7 +44,6 @@ const torrentSize = (torrent) => {
 // infohash(readTorrentFile('espresso.torrent'))
 // peerId()
 // console.log(Buffer.alloc(8))
-torrentSize(readTorrentFile('espresso.torrent'))
 
 export {
     infohash,

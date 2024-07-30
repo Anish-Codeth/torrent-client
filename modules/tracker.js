@@ -5,9 +5,10 @@ import dgram  from 'dgram';
 import parse from 'url-parse'
 import { peerId, readTorrentFile, torrentSize ,infohash} from './utils.js';
 import { BuildConnectionParse,AnnounceRespParse } from './torrentparser.js';
+import 'dotenv/config'
 
 
-const filename='espresso.torrent'
+const filename=process.env.filename
 
 //to get trackers
 const getTrackers = (filename) => {
