@@ -12,3 +12,4 @@ This client is designed to download files specified in a given torrent file. It 
     ```
 2. You will get the test file.
 3. Place the path in the given input prompt.
+# torrent-client
